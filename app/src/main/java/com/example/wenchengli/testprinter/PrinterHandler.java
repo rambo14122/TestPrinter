@@ -6,9 +6,15 @@ import android.util.Log;
 
 
 public class PrinterHandler extends AsyncTask {
+
+    private String string;
+
+    public PrinterHandler(String string) {
+        this.string = string;
+    }
+
     @Override
     protected Object doInBackground(Object[] objects) {
-        String string = objects[0].toString();
         Log.i("Test String", string);
         String model = Build.MODEL;
         if (model.equals("N3") || model.equals("N5"))
@@ -17,6 +23,9 @@ public class PrinterHandler extends AsyncTask {
     }
 
     public synchronized void testPrint(String string) {
+        if (getPrinter().getLock())
+            return;
+        getPrinter().setLock(true);
         getPrinter();
         getPrinter().println("Start Printing", PrinterAPI.Alignment.LEFT, PrinterAPI.FontSize.NORMAL, PrinterAPI.Decoration.NORMAL, PrinterAPI.LineSpace.MEDIUM);
         getPrinter().printBarcode(string);

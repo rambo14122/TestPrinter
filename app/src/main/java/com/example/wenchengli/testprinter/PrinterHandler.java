@@ -27,9 +27,14 @@ public class PrinterHandler extends AsyncTask {
             return;
         getPrinter().setLock(true);
         getPrinter();
-        getPrinter().println("Start Printing", PrinterAPI.Alignment.LEFT, PrinterAPI.FontSize.NORMAL, PrinterAPI.Decoration.NORMAL, PrinterAPI.LineSpace.MEDIUM);
+        getPrinter().println("Test Printing", PrinterAPI.Alignment.CENTER, PrinterAPI.FontSize.NORMAL, PrinterAPI.Decoration.NORMAL, PrinterAPI.LineSpace.MEDIUM);
+        getPrinter().println("**********************", PrinterAPI.Alignment.CENTER, PrinterAPI.FontSize.NORMAL, PrinterAPI.Decoration.NORMAL, PrinterAPI.LineSpace.MEDIUM);
+
         getPrinter().printBarcode(string);
 //        getPrinter().println("Test End", PrinterAPI.Alignment.LEFT, PrinterAPI.FontSize.NORMAL, PrinterAPI.Decoration.NORMAL, PrinterAPI.LineSpace.MEDIUM);
+        getPrinter().println(string, PrinterAPI.Alignment.CENTER, PrinterAPI.FontSize.NORMAL, PrinterAPI.Decoration.NORMAL, PrinterAPI.LineSpace.MEDIUM);
+        getPrinter().println("**********************", PrinterAPI.Alignment.CENTER, PrinterAPI.FontSize.NORMAL, PrinterAPI.Decoration.NORMAL, PrinterAPI.LineSpace.MEDIUM);
+        getPrinter().println("**********************", PrinterAPI.Alignment.CENTER, PrinterAPI.FontSize.NORMAL, PrinterAPI.Decoration.NORMAL, PrinterAPI.LineSpace.MEDIUM);
         getPrinter().feedAndCutPaper();
     }
 

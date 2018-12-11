@@ -232,7 +232,9 @@ public class NexgoPrinter implements PrinterAPI {
 
                     if (func.equals("BARCODE")) {
                         BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
-                        Bitmap bitmap = barcodeEncoder.encodeBitmap(str, BarcodeFormat.CODE_128, 5200, 700);
+//                        700
+//                        5200, 2200
+                        Bitmap bitmap = barcodeEncoder.encodeBitmap(str, BarcodeFormat.CODE_128, 520, 220);
                         printer.appendImage(bitmap,AlignEnum.LEFT);
 //                        printer.appendBarcode("0123456789", 50, 0, 2, BarcodeFormatEnum.CODE_128, AlignEnum.CENTER);
 //                        int result = printer.appendQRcode(str, 120, AlignEnum.CENTER);
